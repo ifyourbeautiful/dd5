@@ -1,4 +1,5 @@
-# SỬA LỖI: Đổi version từ 3.8 xuống 3.7 để tương thích
+# Nội dung cho file docker-compose.yml của bạn
+
 version: '3.7'
 services:
   app:
@@ -16,3 +17,9 @@ services:
       - SCREEN_WIDTH=1024
       - SCREEN_HEIGHT=768
       - SCREEN_DEPTH=24
+    
+    # --- SỬA LỖI: THÊM 3 DÒNG NÀY ---
+    # Chia sẻ Docker socket vào bên trong container này
+    # để script Python (Docker SDK) có thể tìm thấy và sử dụng nó
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
