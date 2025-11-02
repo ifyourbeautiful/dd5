@@ -18,8 +18,3 @@ services:
       - SCREEN_HEIGHT=768
       - SCREEN_DEPTH=24
     
-    # --- SỬA LỖI: THÊM 3 DÒNG NÀY ---
-    # Chia sẻ Docker socket vào bên trong container này
-    # để script Python (Docker SDK) có thể tìm thấy và sử dụng nó
-    volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock"
