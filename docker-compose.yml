@@ -1,16 +1,14 @@
-# Nội dung cho file docker-compose.yml
-version: '3.8'
+# SỬA LỖI: Đổi version từ 3.8 xuống 3.7 để tương thích
+version: '3.7'
 services:
   app:
     image: "thuonghai2711/ubuntu-novnc-pulseaudio:20.04"
     privileged: true
     shm_size: 1g
-    # QUAN TRỌNG: Expose port 8080 của máy chủ
-    # và trỏ nó đến port 10000 của container
     ports:
       - "8080:10000"
     environment:
-      - VNC_PASSWD=12345678
+      - VNC_PASSWD=password
       - PORT=10000
       - AUDIO_PORT=1699
       - WEBSOCKIFY_PORT=6900
